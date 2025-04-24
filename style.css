@@ -76,3 +76,7 @@ textarea {
 .action-btn:hover {
     background-color: #0056b3;
 }
+
+.action-btn:active {
+    transform: scale(0.98);
+}

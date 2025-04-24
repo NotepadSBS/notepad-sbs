@@ -1,15 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notepad.SBS</title>
-  <!-- Correct path to your stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="darkModeToggle" class="action-btn top-right">🌙</button>
+  <!-- Top-left logo -->
+  <div class="logo">
+    <img src="logo.png" alt="Logo" width="40" height="40">
+  </div>
+
+  <!-- Hamburger menu & Toggle -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      ☰
+    </div>
+    <div id="menu" class="menu">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round">
+          <span class="icon moon">🌙</span>
+          <span class="icon sun">☀️</span>
+        </div>
+      </label>
+    </div>
+  </div>
 
   <div class="container">
     <h1>NOTEPAD.SBS</h1>
@@ -22,7 +39,6 @@
     <button id="copyBtn" class="action-btn mobile-only">Copy to Clipboard</button>
   </div>
 
-  <!-- Correct path to your script -->
   <script src="script.js"></script>
 </body>
 </html>

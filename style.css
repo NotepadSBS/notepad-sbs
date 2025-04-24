@@ -80,3 +80,14 @@ textarea {
 .action-btn:active {
     transform: scale(0.98);
 }
+
+.mobile-only {
+    display: none;
+}
+
+/* Show on mobile screens */
+@media only screen and (max-width: 768px) {
+    .mobile-only {
+        display: inline-block;
+    }
+}

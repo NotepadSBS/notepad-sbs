@@ -1,6 +1,7 @@
 const notepad = document.getElementById("notepad");
 const clearNotesBtn = document.getElementById("clearNotesBtn");
 const downloadBtn = document.getElementById("downloadBtn");
+const copyBtn = document.getElementById("copyBtn");
 
 // Load saved notes from localStorage when the page is loaded
 window.onload = () => {
@@ -32,4 +33,15 @@ downloadBtn.addEventListener("click", () => {
 
     // Cleanup
     URL.revokeObjectURL(anchor.href);
+});
+
+copyBtn.addEventListener("click", () => {
+    notepad.select();
+    document.execCommand("copy");
+
+    // Optional: Alert user that it's copied
+    copyBtn.textContent = "Copied!";
+    setTimeout(() => {
+        copyBtn.textContent = "Copy to Clipboard";
+    }, 1500);
 });

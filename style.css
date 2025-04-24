@@ -81,13 +81,14 @@ textarea {
     transform: scale(0.98);
 }
 
+/* Hide by default */
 .mobile-only {
-    display: none;
+    display: none !important;
 }
 
-/* Show on mobile screens */
+/* Show only on screens narrower than 768px (typically phones) */
 @media only screen and (max-width: 768px) {
     .mobile-only {
-        display: inline-block;
+        display: inline-block !important;
     }
 }

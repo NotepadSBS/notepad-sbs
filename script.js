@@ -2,6 +2,7 @@ const notepad = document.getElementById("notepad");
 const clearNotesBtn = document.getElementById("clearNotesBtn");
 const downloadBtn = document.getElementById("downloadBtn");
 const copyBtn = document.getElementById("copyBtn");
+const toggleCheckbox = document.getElementById("checkbox");
 
 // Load saved notes from localStorage when the page is loaded
 window.onload = () => {
@@ -45,3 +46,20 @@ copyBtn.addEventListener("click", () => {
         copyBtn.textContent = "Copy to Clipboard";
     }, 1500);
 });
+
+// Handle theme toggle inside hamburger menu
+toggleCheckbox.addEventListener("change", () => {
+    if (toggleCheckbox.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+    }
+});
+
+// Show/hide hamburger menu
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}

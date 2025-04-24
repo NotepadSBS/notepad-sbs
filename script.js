@@ -1,5 +1,6 @@
 const notepad = document.getElementById("notepad");
 const clearNotesBtn = document.getElementById("clearNotesBtn");
+const downloadBtn = document.getElementById("downloadBtn");
 
 // Load saved notes from localStorage when the page is loaded
 window.onload = () => {
@@ -18,4 +19,17 @@ clearNotesBtn.addEventListener("click", () => {
         notepad.value = '';  // Clear the textarea
         localStorage.removeItem("notes");  // Remove notes from localStorage
     }
+});
+
+downloadBtn.addEventListener("click", () => {
+    const text = notepad.value;
+    const blob = new Blob([text], { type: "text/plain" });
+    const anchor = document.createElement("a");
+
+    anchor.href = URL.createObjectURL(blob);
+    anchor.download = "notes.txt";
+    anchor.click();
+
+    // Cleanup
+    URL.revokeObjectURL(anchor.href);
 });
